@@ -1,23 +1,37 @@
-var box = document.querySelectorAll(".div")
+var boxes = document.querySelectorAll(".div");
 
-box.forEach(function(elem){
-    elem.addEventListener("click", function(){
-        elem.innerHTML = "x"
-    })
-})
+var currentPlayer = 'O';
+var count=0;
+
+var result = 'waiting for result';
+
+boxes.forEach(function(box) {
+    box.addEventListener("click", function() {
+        if (!box.innerText.trim()) { 
+            box.innerText = currentPlayer; 
+            // currentPlayer = currentPlayer === 'O' ? 'E' : 'O'; 
+            
+            if(currentPlayer == 'O'){
+                currentPlayer = 'X';
+                count++;
+            }
+            else{
+                currentPlayer = 'O';
+                count++;
+            }
+
+            
+
+        }
+        console.log(result)
+    });
+});
 
 
+var a = document.querySelector(".a").innerText;
+var b = document.querySelector(".b").innerText;
+var c = document.querySelector(".c").innerText;
 
-
-
-
-
-// var a = document.querySelector(".a");
-// var b = document.querySelector(".b");
-// var c = document.querySelector(".c");
-// var d = document.querySelector(".d");
-// var e = document.querySelector(".e");
-// var f = document.querySelector(".f");
-// var g = document.querySelector(".g");
-// var h = document.querySelector(".h");
-// var i = document.querySelector(".i");
+if(a == "O" || b == "O" || c == "O"){
+    result = "win"
+}
